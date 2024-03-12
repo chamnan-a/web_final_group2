@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('image');
             $table->foreignId('product_type_id')
                 ->constrained('product_types');
+            $table->foreignId('country_id')
+                ->constrained('countries');
             $table->timestamps();
         });
     }
