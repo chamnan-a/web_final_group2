@@ -11,6 +11,7 @@
         <tr>
             <th>No</th>
             <th>Type</th>
+            <th>Import From</th>
             <th>Image</th>
             <th>Name</th>
             <th>Details</th>
@@ -20,6 +21,7 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $product->productType->name }}</td>
+                <td>{{ $product->country->name }}</td>
                 <td><img src="/images/{{ $product->image }}" width="100px"></td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->detail }}</td>

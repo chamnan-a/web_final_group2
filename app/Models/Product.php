@@ -18,4 +18,8 @@ class Product extends Model
     {
         return $this->belongsTo(ProductType::class);
     }
+    public function country():BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\RedirectResponse;
@@ -18,7 +19,9 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $products = Product::with('productType')->paginate(5);
+        $products = Product::with('productType')
+            ->with('country')
+            ->paginate(5);
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -29,7 +32,8 @@ class ProductController extends Controller
     public function create(): View
     {
         $data = array(
-            'types'=>ProductType::get()
+            'types'=>ProductType::get(),
+            'countries'=>Country::get(),
         );
         return view('products.create')->with($data);
     }
@@ -66,7 +70,9 @@ class ProductController extends Controller
      */
     public function show(Product $product): View
     {
-        $product = Product::with('productType')->find($product->id);
+        $product = Product::with('productType')
+            ->with('country')
+            ->find($product->id);
         return view('products.show',compact('product'));
     }
 
