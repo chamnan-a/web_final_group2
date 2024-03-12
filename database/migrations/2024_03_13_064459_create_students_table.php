@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('detail');
             $table->string('image');
+            $table->foreignId('province_id')->constrained('provinces');
+            $table->foreignId('student_type_id')->constrained('student_types');
+            $table->foreignId('generation_id')->constrained('generations');
+
             $table->timestamps();
         });
     }

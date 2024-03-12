@@ -19,8 +19,6 @@ class ProductController extends Controller
     public function index(): View
     {
         $products = Product::with('productType')->paginate(5);
-
-
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -30,7 +28,9 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        $data = array('type'=>ProductType::get());
+        $data = array(
+            'types'=>ProductType::get()
+        );
         return view('products.create')->with($data);
     }
 

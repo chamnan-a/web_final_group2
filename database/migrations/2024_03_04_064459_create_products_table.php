@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('detail');
             $table->string('image');
-            $table->foreignId('product_type_id')->constrained('product_types');
+            $table->foreignId('product_type_id')
+                ->constrained('product_types');
             $table->timestamps();
         });
     }

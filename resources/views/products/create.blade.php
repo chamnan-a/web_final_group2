@@ -27,16 +27,18 @@
         @csrf
 
         <div class="row">
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Product Type:</strong>
                     <select name="product_type_id" id="product_type_id" class="form-control">
-                        @foreach($type as $row)
+                        @foreach($types as $row)
                         <option value="{{$row->id}}">{{$row->name}}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
