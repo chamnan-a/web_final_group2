@@ -25,6 +25,7 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         $request->session()->flush();
         return redirect('login');
+
     }
     function login(Request $request)
     {
