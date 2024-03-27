@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -7,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -17,7 +16,6 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array
-
      */
     protected $fillable = [
         'name',
@@ -30,7 +28,6 @@ class User extends Authenticatable
      * The attributes that should be hidden for serialization.
      *
      * @var array
-
      */
     protected $hidden = [
         'password',
@@ -41,24 +38,27 @@ class User extends Authenticatable
      * The attributes that should be cast.
      *
      * @var array
-
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'type' => 'integer', // Cast 'type' attribute to integer
     ];
 
     /**
-     * Interact with the user's first name.
+     * Cast the 'type' attribute to string value.
      *
-     * @param  string  $value
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     * @param  mixed  $value
+     * @return string|null
      */
-    protected function type(): Attribute
+    public function getTypeAttribute($value): ?string
     {
-        return new Attribute(
-            function ($value) {
-                return ["user", "admin", "manager"][$value];
-            },
-        );
+        return ["user", "admin", "manager"][$value] ?? null;
     }
+
+    /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+
 }

@@ -2,9 +2,18 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\UserAccessMiddleware;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\InvoiceController;
+use App\Models\Invoice;
+use App\Http\Controllers\InvoiceDescriptionController;
+use App\Models\InvoiceDescription;
+use App\Http\Controllers\User1Controller;
+use App\Models\User1;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,18 +31,27 @@ Route::get('login','\App\Http\Controllers\AuthController@index')->name('login');
 Route::post('login','\App\Http\Controllers\AuthController@login')->name('login.process');
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::resource('products', ProductController::class);
+    Route::resource('students', StudentController::class);
+});
+
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+    Route::resource('users', UserController::class);
 });
 
 Route::get('home',function (){
     return redirect('test_layout');
 })->name('home');
 Route::get('/',function (){
-    return redirect('test_layout');
+    return redirect('login');
 });
 
+Route::get('frontend',function (){
+    return view('frontend.app');
+})->name('frontend');
+
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::resource('students', StudentController::class);
+    
+    Route::resource('products', ProductController::class);
 
 });
 
@@ -44,3 +62,32 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 Route::get('/test_layout',function (){
     return view("layouts.app");
 });
+
+Route::get('/drink', function () {
+    return view('frontend.drink');
+});
+
+Route::get('/food', function () {
+    return view('frontend.drink');
+});
+
+Route::get('/bakery', function () {
+    return view('frontend.bakery');
+});
+
+
+Route::middleware(['auth', 'user-access:admin'])->group(function () {
+    Route::resource('user1', User1Controller::class);
+    Route::resource('employees', EmployeeController::class);
+    // Route::resource('users', UserController::class);
+    Route::resource('invoices', InvoiceController::class);
+    Route::resource('invoicedescriptions', InvoiceDescriptionController::class);
+   
+    
+});
+
+
+// Route::middleware(['auth', UserAccessMiddleware::class])->group(function () {
+//     Route::resource('users', UserController::class);
+// });
+

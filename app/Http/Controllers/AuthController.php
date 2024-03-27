@@ -40,10 +40,9 @@ class AuthController extends Controller
         {
             if (auth()->user()->type == 'admin') {
                 return redirect()->route('home');
-            }else if (auth()->user()->type == 'manager') {
-                return redirect()->route('home');
-            }else{
-                return redirect()->route('home');
+
+            }else {
+                return redirect()->route('frontend');
             }
         }else{
             return redirect()->route('login')

@@ -3,8 +3,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">My Project</span>
+        <img src="dist/img/avatar5.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">System</span>
     </a>
 
     <!-- Sidebar -->
@@ -40,68 +40,108 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Students
-                            <i class="fas fa-angle-left right"></i>
+                            Employee
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('students.index')}}" class="nav-link">
+                            <a href="{{route('employees.index')}}" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>All Students</p>
+                                <p>All Employee</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('students.create')}}" class="nav-link">
+                            <a href="{{route('employees.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>New Students</p>
+                                <p>New Employee</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Other
-                            <i class="fas fa-angle-left right"></i>
+                            User
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
+                            <a href="{{route('user1.index')}}" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Simple Tables</p>
+                                <p>All User</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a href="{{route('user1.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>DataTables</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/tables/jsgrid.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>jsGrid</p>
+                                <p>New User</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
-                <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right">2</span>
+                            Invoice
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('invoices.index')}}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Invoice</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('invoices.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Invoice</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Invoice Description
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('invoicedescriptions.index')}}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All invoice_descriptions</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('invoicedescriptions.create')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New invoice_descriptions</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+                
+
                 <li class="nav-item">
                     <a href="/logout" class="nav-link">
                         <i class="nav-icon far fa-arrow-alt-circle-left"></i>

@@ -14,7 +14,7 @@
             <th>Import From</th>
             <th>Image</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Price</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)

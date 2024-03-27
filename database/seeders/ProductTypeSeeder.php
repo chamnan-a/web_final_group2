@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 class ProductTypeSeeder extends Seeder
 {
     /**
@@ -13,14 +14,20 @@ class ProductTypeSeeder extends Seeder
      */
     public function run()
     {
-        $data = array(
+        $data = [
             [
-            'name' => "Drink",
-            'detail' => "Drink including ...."
-            ], [
-                'name' => "Snack",
+                'name' => "Drink",
+                'detail' => "Drink including ...."
+            ],
+            [
+                'name' => "Food",
                 'detail' => "Snack including ...."
-            ]);
+            ],
+            [
+                'name' => "Bakery",
+                'detail' => "Bakery including ...."
+            ]
+        ];
         DB::table('product_types')->insert($data);
     }
 }
